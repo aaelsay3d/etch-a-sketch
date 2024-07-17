@@ -9,7 +9,6 @@ body {
 .container {
     width: 600px;
     height: 600px;
-    border: 1px solid black;
     margin-top: 100px;
     display: flex;
     flex-wrap: wrap;
