@@ -22,5 +22,19 @@ function changeSquareColor() {
     });
 }
 
+function handleClickingNewGridButton() {
+    let button = document.querySelector("button");
+    button.addEventListener("click", () => {
+        let newGridSize = prompt("Enter a new grid size.");
+        if (newGridSize === null) {
+            return;
+        }
+        while ((Number(newGridSize) > 100 || Number(newGridSize) < 1) && newGridSize !== null) {
+            newGridSize = (prompt("Please, enter a number in the range 1 to 100 inclusive."))
+        }
+    });
+}
+
 createGrid(gridSize);
 changeSquareColor();
+handleClickingNewGridButton();
