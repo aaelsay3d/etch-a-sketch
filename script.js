@@ -27,14 +27,33 @@ function handleClickingNewGridButton() {
     button.addEventListener("click", () => {
         let newGridSize = prompt("Enter a new grid size.");
         if (newGridSize === null) {
+            newGridSize = gridSize;
             return;
         }
         while ((Number(newGridSize) > 100 || Number(newGridSize) < 1) && newGridSize !== null) {
             newGridSize = (prompt("Please, enter a number in the range 1 to 100 inclusive."))
         }
+        clearGrid();
+        gridSize = newGridSize;
+        createGrid(newGridSize);
     });
 }
 
-createGrid(gridSize);
-changeSquareColor();
-handleClickingNewGridButton();
+
+function clearGrid() {
+    let container = document.querySelector(".container");
+    for (let i = 0; i < gridSize; i++) {
+        for (let j = 0; j < gridSize; j++) {
+            container.removeChild(container.firstElementChild);
+        }
+    }
+}
+
+function draw() {
+    createGrid(gridSize);
+    changeSquareColor();
+    handleClickingNewGridButton();
+}
+
+
+draw();
