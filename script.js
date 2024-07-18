@@ -25,7 +25,13 @@ function changeSquareColor() {
 function handleClickingNewGridButton() {
     let button = document.querySelector("button");
     button.addEventListener("click", () => {
-        let newGridSize = Number(prompt("Enter a new grid size."));
+        let newGridSize = prompt("Enter a new grid size.");
+        if (newGridSize === null) {
+            return
+        }
+
+        newGridSize = parseInt(newGridSize);
+
         if (newGridSize <= 100 && newGridSize >= 1) {
             clearGrid();
             gridSize = newGridSize;
